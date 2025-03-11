@@ -2,93 +2,96 @@
 # SBOM Finder for Software Applications and Apps
 
 ## Overview
-SBOM Finder is a powerful tool designed to generate, analyze, and validate **Software Bill of Materials (SBOMs)** for software applications and mobile apps. It simplifies dependency management, enhances security vulnerability detection, and ensures compliance with industry standards, benefiting software developers, security professionals, and organizations. 
-
-Supported SBOM formats include **CycloneDX** and **SPDX**.
+The **SBOM Finder** is a **Minimally Viable Product (MVP)** designed to generate, analyze, and validate **Software Bill of Materials (SBOMs)** for software applications and mobile apps. This project is built for sustained production use, ensuring **comprehensive dependency management, security vulnerability detection, and compliance validation**. It meets the requirements of **CycloneDX** and **SPDX** standards and provides features required for real-world application in the market.
 
 ## Features
-- **SBOM Generation**: Automatically creates SBOMs from source code or existing artifacts.
-- **Vulnerability Detection**: Identifies known vulnerabilities within your software dependencies.
-- **Format Compatibility**: Supports industry-standard SBOM formats (CycloneDX, SPDX).
-- **License Compliance**: Helps maintain compliance by identifying license conflicts and risks.
-- **REST API**: Offers easy integration for automation and third-party tools.
-- **Intuitive UI**: Provides an intuitive user interface suitable for both technical and non-technical users.
-- **Automated Reports**: Offers comprehensive reporting for compliance audits and security assessments.
+- **SBOM Generation**: Automatically generates SBOMs for software applications.
+- **Security Vulnerability Analysis**: Identifies security risks in software dependencies.
+- **License Compliance Checking**: Ensures adherence to open-source licenses.
+- **Multiple SBOM Formats**: Supports **CycloneDX** and **SPDX** standards.
+- **REST API for Automation**: Allows seamless integration with CI/CD pipelines.
+- **User-Friendly Interface**: Provides an intuitive UI for easy SBOM management.
+- **Comprehensive Reporting**: Generates detailed compliance and security reports.
+- **Market-Ready Deployment**: Designed for scalability and production use.
 
-## Getting Started
-
-### Requirements
-- Python 3.8 or higher
-- PostgreSQL
+## Installation and Setup
+### Prerequisites
+- Python 3.8+
+- PostgreSQL (for database integration)
 - Docker (optional for deployment)
+- Node.js (for frontend, if applicable)
 
-### Installation
-Clone the repository:
-```bash
-git clone https://github.com/your-username/sbom-finder.git
-cd sbom-finder
-```
+### Installation Steps
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/sbom-finder.git
+   cd sbom-finder
+   ```
 
-Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+2. **Set up a virtual environment and install dependencies:**
+   ```sh
+   python -m venv venv
+   source venv/bin/activate   # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-### Running the Application
-To start the application:
-```bash
-python main.py
-```
+3. **Run the application:**
+   ```sh
+   python main.py
+   ```
 
-### Docker Deployment
-```bash
+### Running with Docker
+To deploy using Docker:
+```sh
 docker build -t sbom-finder .
 docker run -p 8000:8000 sbom-finder
 ```
 
 ## Usage
-
 ### Generate SBOM
-Run the following command to generate an SBOM in CycloneDX format:
-```bash
+```sh
 python sbom_finder.py --input path/to/project --format cyclonedx
 ```
 
-### Vulnerability Check
-Scan an existing SBOM for vulnerabilities:
-```bash
+### Scan for Vulnerabilities
+```sh
 python sbom_finder.py --scan sbom.json
 ```
 
-### REST API
-Start the REST API server:
-```bash
+### API Usage
+Start the API server:
+```sh
 uvicorn app:main --host 0.0.0.0 --port 8000
 ```
-
-Use the API endpoint to upload and analyze SBOMs:
-```bash
+Upload an SBOM for analysis:
+```sh
 curl -X POST -F "file=@sbom.json" http://localhost:8000/api/upload
 ```
 
 ## Configuration
-Create or update a `.env` file with the following environment variables:
-```bash
+Create a `.env` file with the following environment variables:
+```sh
 DB_HOST=localhost
 DB_USER=admin
 DB_PASS=password
 API_KEY=your-api-key
 ```
 
+## Deployment
+The SBOM Finder MVP is designed for **scalable production deployment**. Recommended methods include:
+- **Containerized Deployment:** Using Docker/Kubernetes
+- **Cloud Deployment:** AWS, GCP, or Azure
+- **On-Premises Installation:** Enterprise setup with PostgreSQL and API integrations
+
 ## Contributing
 1. Fork the repository.
-2. Create your feature branch (`git checkout -b feature/my-feature`).
-3. Commit your changes (`git commit -m 'Add my feature'`).
-4. Push to the branch (`git push origin feature/my-feature`).
-5. Open a pull request.
+2. Create a feature branch (`git checkout -b feature-name`).
+3. Commit changes (`git commit -m 'Add feature X'`).
+4. Push the branch (`git push origin feature-name`).
+5. Open a Pull Request.
 
 ## License
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Contact
-For questions or support, please contact [your-email@example.com](mailto:your-email@example.com) or open an issue on GitHub.
+For support or inquiries, please contact [your-email@example.com](mailto:your-email@example.com) or open an issue on GitHub.
